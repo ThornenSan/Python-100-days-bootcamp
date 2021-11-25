@@ -1,6 +1,6 @@
 import random
 
-life = 7
+lives = 7
 point = 0
 word_list = ['house', 'cat', 'dog', 'human', 'laptop',
              'computer', 'car', 'boat', 'pig', 'chicken', 'football']
@@ -63,7 +63,6 @@ HANGMANPICS = ['''
 
 
 def reveal_hint(n):
-    global life
     reveal_pos = random.sample(char_pos, n)
     for i in reveal_pos:
         reveal_answer[i] = list_of_char[i]
@@ -95,8 +94,8 @@ elif len(chosen_word) >= 8:
 
 print(reveal_answer)
 
-while life > 0:
-    if point == len(chosen_word) - num_hint and life == 7:
+while lives > 0:
+    if point == len(chosen_word) - num_hint and lives == 7:
         print()
         print("===========================")
         print("You nailed it perfectly !!!")
@@ -124,8 +123,8 @@ while life > 0:
     # if the guess is wrong output hangman
     else:
         alert_message += 1
-        life -= 1
-        print(HANGMANPICS[7-life-1])
+        lives -= 1
+        print(HANGMANPICS[7-lives-1])
 
     # if the player fail 3 time in a row alert "====Try Harder,You Can do It===="
 

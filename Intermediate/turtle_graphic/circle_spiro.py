@@ -4,7 +4,7 @@ t = turtle.Turtle()
 
 turtle.bgcolor("black")
 turtle.pensize(3)
-turtle.speed(10)
+turtle.speed(0)
 
 turtle.shape("turtle")
 

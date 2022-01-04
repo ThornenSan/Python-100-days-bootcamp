@@ -17,10 +17,7 @@ while len(guessed_states) < 50:
     answer_state = screen.textinput(title=f"{len(guessed_states)}/50 states correct",
                                     prompt="What's another state name?").title()
     if answer_state == "Exit":
-        missing_states = []
-        for state in all_states:
-            if state not in guessed_states:
-                missing_states.append(state)
+        missing_states = [state for state in all_states if state not in guessed_states]
         # save all the missing states in csv file
         new_data = pandas.DataFrame(missing_states)
         new_data.to_csv("states_to_learn.csv")
@@ -36,4 +33,3 @@ while len(guessed_states) < 50:
         # write state name on map
         t.goto(x=int(state_data.x), y=int(state_data.y))
         t.write(state_data.state.item(), font=('Arial', 13, 'normal'))
-
